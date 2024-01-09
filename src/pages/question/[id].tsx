@@ -8,7 +8,7 @@ import { Button, Space } from "antd";
 type PropsType = {
   errno: number;
   data?: {
-    id: string;
+    _id: string;
     title: string;
     desc: string;
     js: string;
@@ -22,7 +22,7 @@ type PropsType = {
 
 const Question: FC<PropsType> = (props) => {
   const { errno, data, msg } = props;
-  const { id = "",title='', isPublished, componentList = [], isDeleted,js,css } = data || {};
+  const { _id = "",title='', isPublished, componentList = [], isDeleted,js,css } = data || {};
 
   if (errno !== 0) {
     return (
@@ -33,7 +33,7 @@ const Question: FC<PropsType> = (props) => {
     );
   }
 
-  if (!id || isDeleted) {
+  if (!_id || isDeleted) {
     return (
       <PageWrapper title="错误">
         <h1>失败</h1>
@@ -61,7 +61,7 @@ const Question: FC<PropsType> = (props) => {
   return (
     <PageWrapper title={title} js={js} css={css}>
       <form action="/api/answer" method="post">
-        <input type="hidden" name="questionId" value={id} />
+        <input type="hidden" name="questionId" value={_id} />
         <Space direction="vertical" size="middle" style={{ display: "flex" }}>
           {ComponentElem}
         </Space>

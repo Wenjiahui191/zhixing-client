@@ -1,7 +1,7 @@
 import QuestionInput from "./QuestionInput";
 import QuestionParagraph from "./QuestionParagraph";
 import QuestionTitle from "./QuestionTitle";
-import QuestionTextarea from "./QuestionTextarea";
+import QuestionTextArea from "./QuestionTextArea";
 import QuestionRadio from "./QuestionRadio";
 import QuestionCheckbox from './QuestionCheckbox'
 
@@ -16,7 +16,7 @@ export function getComponentByType(type: string, item: any) {
     case "questionParagraph":
       return <QuestionParagraph {...props} />;
     case "questionTextArea":
-      return <QuestionTextarea fe_id={fe_id} props={props} />;
+      return <QuestionTextArea fe_id={fe_id} props={props} />;
     case "questionRadio":
       return <QuestionRadio fe_id={fe_id} props={props} />;
       case "questionCheckbox":
